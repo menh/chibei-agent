@@ -1,0 +1,12 @@
+page{
+  background-color: #fff;
+}
+
+.pagecss-title{
+  margin-left: 40rpx;
+  margin-right: 70rpx;
+}
+
+.pagecss-row{
+  margin-bottom: 15rpx;
+}

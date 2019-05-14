@@ -1,0 +1,34 @@
+<view class='page'>
+  <view style='height:15rpx;'></view>
+  <view class='category'>
+    <view class="category-item {{type==='part'?'text-strong':''}}" data-type='part' catchtap='changeType'>未提现</view>
+    <view class="category-item {{type==='all'?'text-strong':''}}" data-type='all' catchtap='changeType'>已提现</view>
+  </view>
+  <view style='height:5rpx;'></view>
+  <view wx:for="{{bills}}" wx:key="{{index}}">
+    <view style='height:20rpx;'></view>
+    <view class='item-information-content big-text my-bill-day'>{{item.recordDateDay}}</view>
+    <view style='height:10rpx;'></view>
+    <view class='item more-padding'  data-url='/pages/region/container/container?containerId={{item.containerId}}' bindtap='navigate'>
+      <view style='width:30rpx;'></view>
+      <view class='item-information' style='width:500rpx;'>
+        <view style='height:35rpx;'></view>
+        <view class='item-information-content big-text black my-bill-cash'>￥{{item.toCash}}</view>
+        <view style='height:35rpx;'></view>
+        <view class='item-information-content'>收款{{item.orderCount}}笔，服务费￥{{item.serviceCharge}}</view>
+        <view style='height:20rpx;'></view>
+      </view>
+      <view class='item-operation' wx:if="{{item.state==='未提现'}}" catchtap='containerSaleMention' data-id='{{item.containerSaleId}}'>
+        <image class='item-operation-image' src='/image/operation/edit.png'></image>
+        <view class='item-operation-title'>送达</view>
+      </view>
+      <view style='width:70rpx;'></view>
+      <view class='item-operation' catchtap='tapDeleteContainerSale' data-id='{{item.containerSaleId}}'>
+        <image class='item-operation-image' src='/image/operation/delete.png'></image>
+        <view class='item-operation-title'>删除</view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

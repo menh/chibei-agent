@@ -1,0 +1,7 @@
+/* pages/commodity/goodEdit/goodEdit.wxss */
+
+.canvas-choose-image {
+  width: 200px;
+  height: 200px;
+  margin-left: 30rpx;
+}

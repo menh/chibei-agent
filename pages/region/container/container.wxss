@@ -1,0 +1,27 @@
+/* pages/region/container/container.wxss */
+
+.openid {
+  height: 60rpx;
+  line-height: 30rpx;
+  width: 250rpx;
+  display: -webkit-box;
+  text-align: start;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+}
+
+
+.records-day {
+  font-size: 33rpx;
+  color: rgb(128, 128, 128);
+}
+
+.my-bill-cash{
+  font-size: 47rpx;
+}
+
+.my-bill-day{
+  text-align: left;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}

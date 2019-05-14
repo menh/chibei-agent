@@ -1,0 +1,47 @@
+<view class='page'>
+  <view class='edit-image-item'>
+    <view class="edit-image-item-title">商品图片</view>
+    <image class="edit-image-item-operation" src='{{good.goodPic}}' bindtap="changeGoodPic"></image>
+    <canvas class='canvas-choose-image' wx:if="{{isCanvasShow}}"  canvas-id='canvas-choose-image'></canvas>
+  </view>
+
+  <view class='edit-input-item'>
+    <view class="edit-input-item-title">商品名称</view>
+    <input class="edit-input-item-operation" name="input" placeholder="商品名称" value='{{good.goodName}}' data-name='goodName' bindinput="editInputChange"></input>
+  </view>
+
+  <view class="edit-picker-item">
+    <view class="edit-picker-item-title">商品目录</view>
+    <picker bindchange="categoryChange" value="{{categoryMultiIndex}}" range="{{categoryMultiArray}}" range-key="{{'categoryName'}}">
+      <view class="edit-picker-item-operation">
+        当前选择：{{categoryMultiArray[categoryMultiIndex].categoryName}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='edit-input-item'>
+    <view class="edit-input-item-title">零售价格</view>
+    <input class="edit-input-item-operation" name="input" type='digit' placeholder="售价" value='{{good.price}}' data-name='price' bindinput="editInputChange"></input>
+  </view>
+
+  <view class='edit-input-item'>
+    <view class="edit-input-item-title">成本价格</view>
+    <input class="edit-input-item-operation" name="input" type='digit' placeholder="成本" value='{{good.cost}}' data-name='cost' bindinput="editInputChange"></input>
+  </view>
+
+  <view class='edit-input-item'>
+    <view class="edit-input-item-title">单位</view>
+    <input class="edit-input-item-operation" name="input" placeholder="单位" value='{{good.goodUnit}}' data-name='goodUnit' bindinput="editInputChange"></input>
+  </view>
+
+  <view class="edit-radio-item">
+    <view class="edit-radio-item-title">是否上架</view>
+    <radio-group class='edit-radio-item-operation' data-name='valid' name="radio" bindchange="editRadioChange">
+      <radio class='edit-radio-item-operation-radio' value="是" checked="{{good.valid==='是'?true:false}}">是</radio>
+      <radio class='edit-radio-item-operation-radio' value="否" checked="{{good.valid==='否'?true:false}}">否</radio>
+    </radio-group>
+  </view>
+
+  <button class="edit-submit" type="primary" bindtap='editSubmit'>提交</button>
+  <view style='height:30rpx;'></view>
+</view>

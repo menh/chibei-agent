@@ -1,0 +1,3 @@
+<view class='page'>
+  <input class='search' type='number' confirm-type='search' placeholder='请输入盒子编号' bindblur='searchBox'></input>
+</view>

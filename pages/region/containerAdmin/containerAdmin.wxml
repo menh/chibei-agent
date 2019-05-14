@@ -1,0 +1,90 @@
+<view class='page'>
+
+  <view class='data'>
+    <view class='data-item'>
+      <view class='data-item-num'>23</view>
+      <view class='data-item-title'>今日流水</view>
+    </view>
+    <view class='data-item'>
+      <view class='data-item-num'>23</view>
+      <view class='data-item-title'>周活盒子</view>
+    </view>
+    <view class='data-item'>
+      <view class='data-item-num'>23</view>
+      <view class='data-item-title'>初始待处</view>
+    </view>
+    <view class='data-item'>
+      <view class='data-item-num'>23</view>
+      <view class='data-item-title'>剩余待处</view>
+    </view>
+  </view>
+
+  <view style='height:5rpx;'></view>
+  
+  <view class='operation'>
+    <view class='operation-item' data-url='/pages/box/boxSearch/boxSearch' bindtap='navigate'>
+      <image class='operation-item-image' src='/image/operation/search.png'></image>
+      <view class='operation-item-title'>查找代理</view>
+    </view>
+  </view>
+  
+  <view style='height:5rpx;'></view>
+
+  <view wx:for="{{containers}}" wx:key="{{index}}">
+    <view class='item' data-url='/pages/region/container/container?containerId={{item.containerId}}' bindtap='navigate'>
+      <view class='item-introduce'>
+        <image class='item-introduce-image' src='/image/icon/container.png'></image>
+        <view style='height:20rpx;'></view>
+        <view class='item-introduce-name text-strong'>{{item.schoolName}}</view>
+        <view class='item-introduce-name text-strong'>{{item.dormitoryName}}-{{item.containerName}}</view>
+      </view>
+      <view class='item-colum'>
+        <view class='item-row'>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.boxNum}}</view>
+            <view class='item-data-title'>盒子数量</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.sevenDayLiveBoxNum}}</view>
+            <view class='item-data-title'>周活盒子</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.thirtyDayLiveBoxNum}}</view>
+            <view class='item-data-title'>月活盒子</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num text-strong'>{{item.dayToDealBoxNum}}</view>
+            <view class='item-data-title'>初始待处</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num text-strong'>{{item.remainToDealBoxNum}}</view>
+            <view class='item-data-title'>剩余待处</view>
+          </view>
+        </view>
+        <view class='item-row'>
+          <view class='item-date'>
+            <view class='item-date-day text-strong'>{{item.day}}</view>
+            <view class='item-date-time text-strong'>{{item.time}}</view>
+            <view class='item-date-title'>最后登录</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.roomNum}}</view>
+            <view class='item-data-title'>宿舍间数</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.agentNum}}</view>
+            <view class='item-data-title'>代理数量</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num text-strong'>{{item.dayAvgTrd}}</view>
+            <view class='item-data-title'>日均流水</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num text-strong'>{{item.dayTrd}}</view>
+            <view class='item-data-title'>今日流水</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

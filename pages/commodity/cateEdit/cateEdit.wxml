@@ -1,0 +1,26 @@
+<view class='page'>
+  <view class='edit-input-item'>
+    <view class="edit-input-item-title">目录名称</view>
+    <input class="edit-input-item-operation" name="input" placeholder="目录名称" value='{{category.categoryName}}' data-name='categoryName' bindinput="editInputChange"></input>
+  </view>
+<!-- 
+  <view class="edit-radio-item">
+    <view class="edit-radio-item-title">目录类别</view>
+    <radio-group class='edit-radio-item-operation' data-name='categoryType' name="radio" bindchange="editRadioChange">
+      <radio class='edit-radio-item-operation-radio' value="零售" checked="{{category.categoryType==='零售'?true:false}}">零售</radio>
+      <radio class='edit-radio-item-operation-radio' value="批发" checked="{{category.categoryType==='批发'?true:false}}">批发</radio>
+    </radio-group>
+  </view>
+
+  <view class="edit-radio-item">
+    <view class="edit-radio-item-title">是否显示</view>
+    <radio-group class='edit-radio-item-operation' data-name='valid' name="radio" bindchange="editRadioChange">
+      <radio class='edit-radio-item-operation-radio' value="显示" checked="{{category.valid==='显示'?true:false}}">显示</radio>
+      <radio class='edit-radio-item-operation-radio' value="不显示" checked="{{category.valid==='不显示'?true:false}}">不显示</radio>
+    </radio-group>
+  </view> -->
+
+  <button  class="edit-submit" type="primary" bindtap='editSubmit'>提交</button>
+  
+  <view style='height:30rpx;'></view>
+</view>

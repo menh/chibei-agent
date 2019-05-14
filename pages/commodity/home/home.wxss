@@ -1,0 +1,27 @@
+
+
+.fixed-left{
+  position: fixed;
+  left: 75rpx;
+  bottom: 60rpx;
+  z-index: 1;
+}
+.fixed-right{
+  position: fixed;
+  left: 580rpx;
+  bottom: 60rpx;
+  z-index: 1;
+}
+.botton-image {
+  width: 110rpx;
+  height: 110rpx;
+}
+.botton-text {
+  width: 110rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: white;
+  font-size: 27rpx;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,0 +1,5 @@
+/* pages/box/boxDetail/boxDetail.wxss */
+
+.order-price-size{
+  font-size:33rpx;
+}

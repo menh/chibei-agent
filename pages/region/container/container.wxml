@@ -1,0 +1,197 @@
+<view class='page'>
+  <view class='item' data-id='{{container.containerId}}'>
+    <view style='width:20rpx;'></view>
+    <view class='item-introduce'>
+      <image class='item-introduce-image' src='/image/icon/dormitory.png'></image>
+      <view style='height:20rpx;'></view>
+      <view class='item-introduce-name text-strong'>{{container.dormName}}</view>
+      <view class='item-introduce-name text-strong'>{{container.containerName}}</view>
+    </view>
+    <view style='width:40rpx;'></view>
+    <view class='item-colum'>
+      <view class='item-row'>
+        <view class='item-data'>
+          <view class='item-data-num  text-strong'>{{container.agentNum}}</view>
+          <view class='item-data-title'>兼职数量</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num  text-strong'>{{container.boxNum}}</view>
+          <view class='item-data-title'>盒子数量</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num'>{{container.sevenDayLiveBoxNum}}</view>
+          <view class='item-data-title'>周活盒子</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num'>{{container.thirtyDayLiveBoxNum}}</view>
+          <view class='item-data-title'>月活盒子</view>
+        </view>
+      </view>
+      <view class='item-row'>
+        <view class='item-data'>
+          <view class='item-data-num text-strong'>{{container.dayToDealBoxNum}}</view>
+          <view class='item-data-title'>初始待处</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num text-strong'>{{container.remainToDealBoxNum}}</view>
+          <view class='item-data-title'>剩余待处</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num text-strong'>{{container.dayAvgTrd}}</view>
+          <view class='item-data-title'>日均流水</view>
+        </view>
+        <view style='width:10rpx;'></view>
+        <view class='item-data'>
+          <view class='item-data-num text-strong'>{{container.dayTrd}}</view>
+          <view class='item-data-title'>今日流水</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:5rpx;'></view>
+  <view class='operation'>
+    <view class='operation-item' data-url='/pages/box/boxEdit/boxEdit?isEdit=false&containerId={{container.containerId}}&interfaceName=AddBox.do' bindtap='navigate'>
+      <image class='operation-item-image' src='/image/operation/box.png'></image>
+      <view class='operation-item-title'>添加盒子</view>
+    </view>
+    <view class='operation-item' data-url='/pages/region/agentEdit/agentEdit?isEdit=false&containerId={{container.containerId}}&interfaceName=addAgent.do' bindtap='navigate'>
+      <image class='operation-item-image' src='/image/operation/person.png'></image>
+      <view class='operation-item-title'>添加配货人员</view>
+    </view>
+    <view class='operation-item' data-url='/pages/region/containerEdit/containerEdit?isEdit=true&containerId={{container.containerId}}&interfaceName=updContainer.do' bindtap='navigate'>
+      <image class='operation-item-image' src='/image/operation/edit.png'></image>
+      <view class='operation-item-title'>编辑</view>
+    </view>
+    <view class='operation-item' data-url='delDormitory.do' data-name='{{container.containerName}}' bindtap='tapDelete'>
+      <image class='operation-item-image' src='/image/operation/delete.png'></image>
+      <view class='operation-item-title'>删除</view>
+    </view>
+  </view>
+
+  <view style='height:5rpx;'></view>
+
+  <view class='category'>
+    <view class="category-item {{category==='box'?'text-strong':''}}" data-category='box' catchtap='tapCategory'>全部盒子</view>
+    <view class="category-item {{category==='agent'?'text-strong':''}}" data-category='agent' catchtap='tapCategory'>配货人员</view>
+  </view>
+  <view style='height:5rpx;'></view>
+
+  <view wx:if="{{category === 'box'}}">
+    <view class='sort'>
+      <view class="sort-item {{sortBox==='box'?'text-strong':''}}" data-sort='box' catchtap='tapSort'>全部</view>
+      <view class="sort-item {{sortBox==='room'?'text-strong':''}}" data-sort='room' catchtap='tapSort'>待配货</view>
+      <view class="sort-item {{sortBox==='proportion'?'text-strong':''}}" data-sort='proportion' catchtap='tapSort'>待配送</view>
+      <view class="sort-item {{sortBox==='surplus'?'text-strong':''}}" data-sort='surplus' catchtap='tapSort'>待补货</view>
+      <view class="sort-item {{sortBox==='surplus'?'text-strong':''}}" data-sort='surplus' catchtap='tapSort'>待回访</view>
+    </view>
+
+    <view style='height:5rpx;'></view>
+
+    <view wx:for="{{boxs}}" wx:key="{{index}}">
+      <view class='item  belong-category more-padding' data-url='/pages/box/boxDetail/boxDetail?boxId={{item.boxId}}' bindtap='navigate'>
+        <!-- <view class='item  belong-category'> -->
+        <view style='width:20rpx;'></view>
+        <image wx:if="{{item.state==='申请补货已确认'}}" class='item-introduce-image' src='/image/icon/boxApply.png'></image>
+        <image wx:if="{{item.state==='建议补货'}}" class='item-introduce-image' src='/image/icon/boxDevice.png'></image>
+        <image wx:if="{{item.state==='申请补货已确认已催'}}" class='item-introduce-image' src='/image/icon/boxUrge.png'></image>
+        <image wx:if="{{item.state==='建议补货已催'}}" class='item-introduce-image' src='/image/icon/boxUrge.png'></image>
+        <image wx:if="{{item.state==='沉默'}}" class='item-introduce-image' src='/image/icon/boxSilent.png'></image>
+        <image wx:if="{{item.state==='正常'||item.state==='申请补货'}}" class='item-introduce-image' src='/image/icon/box.png'></image>
+        <view style='width:20rpx;'></view>
+        <view class='item-information'>
+          <view class='item-information-content text-strong'>{{item.boxId}}</view>
+          <view class='item-information-content'>{{item.sex}} {{item.grade}}</view>
+          <view class='item-information-content'>{{item.dormName}}</view>
+          <view class='item-information-content text-strong'>{{item.containerName}}-{{item.room}}</view>
+        </view>
+        <view class='item-row'>
+          <view class='item-date'>
+            <view class='item-date-day'>{{item.visitDateDay}}</view>
+            <view class='item-date-time'>{{item.visitDateTime}}</view>
+            <view class='item-date-title'>回访时间</view>
+          </view>
+          <view class='item-date'>
+            <view class='item-date-day'>{{item.lastSuppleDateDay}}</view>
+            <view class='item-date-time'>{{item.lastSuppleDateTime}}</view>
+            <view class='item-date-title'>补货时间</view>
+          </view>
+          <view class='item-date'>
+            <view class='item-date-day text-strong'>{{item.lastPurchaseDateDay}}</view>
+            <view class='item-date-time text-strong'>{{item.lastPurchaseDateTime}}</view>
+            <view class='item-date-title'>消费时间</view>
+          </view>
+          <view class='item-data'>
+            <view class='item-data-num'>{{item.residualNum}}</view>
+            <view class='item-data-title'>剩余件数</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{category === 'agent'}}">
+    <view wx:for="{{agents}}" wx:key="{{index}}">
+      <view class='item more-padding belong-category' data-id='{{item.openId}}' data-name='{{item.name}}' bindtap='copyAgentInfo'>
+        <view style='width:20rpx;'></view>
+        <image class='item-introduce-image' src='{{item.wechatAvatar}}'></image>
+        <view style='width:20rpx;'></view>
+        <view class='item-information' style='width:250rpx;'>
+          <view class='item-information-content'>
+            <label class='text-strong'>{{item.name}}</label>({{item.nickName}})</view>
+          <view class='item-information-content'>{{item.dormName}}-{{item.room}} {{item.sex}} {{item.grade}}</view>
+          <view class='item-information-content text-strong'>{{item.phone}}</view>
+          <view class='item-information-content'>{{item.withdrawCashPermission=='true'?'有':'无'}}提现权限</view>
+        </view>
+        <view style='width:150rpx;'></view>
+
+        <view class='item-row'>
+          <view class='item-operation' data-url='/pages/region/agentEdit/agentEdit?isEdit=true&openId={{item.openId}}&interfaceName=updAgent.do' catchtap='navigate'>
+            <image class='item-operation-image' src='/image/operation/edit.png'></image>
+            <view class='item-operation-title'>编辑</view>
+          </view>
+          <view style='width:70rpx;'></view>
+          <view class='item-operation' catchtap='tapDeleteAgent' data-openid='{{item.openId}}'>
+            <image class='item-operation-image' src='/image/operation/delete.png'></image>
+            <view class='item-operation-title'>删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view wx:if="{{category==='record'}}">
+    <view wx:for="{{bills}}" wx:key="{{index}}">
+      <view style='height:20rpx;'></view>
+      <view class='item-information-content big-text my-bill-day'>{{item.recordDateDay}}</view>
+      <view style='height:10rpx;'></view>
+      <view class='item more-padding belong-category'>
+        <view style='width:30rpx;'></view>
+        <view class='item-information' style='width:500rpx;'>
+          <view style='height:35rpx;'></view>
+          <view class='item-information-content big-text black my-bill-cash'>￥{{item.toCash}}</view>
+          <view style='height:35rpx;'></view>
+          <view class='item-information-content'>收款{{item.orderCount}}笔，服务费￥{{item.serviceCharge}},
+            <label class='text-strong'>{{item.state}}</label>。</view>
+          <view style='height:20rpx;'></view>
+        </view>
+        <view class='item-operation' wx:if="{{item.state==='未提现'}}" catchtap='containerSaleMention' data-id='{{item.containerSaleId}}'>
+          <image class='item-operation-image' src='/image/icon/check.png'></image>
+          <view class='item-operation-title'>提现</view>
+        </view>
+        <view style='width:50rpx;' wx:if="{{item.state!='未提现'}}"></view>
+        <view style='width:70rpx;'></view>
+        <view class='item-operation' catchtap='tapDeleteContainerSale' data-id='{{item.containerSaleId}}'>
+          <image class='item-operation-image' src='/image/operation/delete.png'></image>
+          <view class='item-operation-title'>删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

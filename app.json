@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/hello/hello",
+    "pages/box/boxDetail/boxDetail",
+    "pages/apply/apply",
+    "pages/region/school/school",
+    "pages/region/home/home",
+    "pages/logistics/home/home",
+    "pages/commodity/goodEdit/goodEdit",
+    "pages/region/container/container",
+    "pages/box/boxAdmin/boxAdmin",
+    "pages/box/boxStructNoEdit/boxStructNoEdit",
+    "pages/commodity/home/home",
+    "pages/logistics/wholesaleOrder/wholesaleOrder",
+    "pages/commodity/cate/cate",
+    "pages/commodity/cateEdit/cateEdit",
+    "pages/region/dormAdmin/dormAdmin",
+    "pages/region/containerAdmin/containerAdmin",
+    "pages/box/boxStruct/boxStruct",
+    "pages/box/boxEdit/boxEdit",
+    "pages/box/boxSearch/boxSearch",
+    "pages/region/agentEdit/agentEdit",
+    "pages/region/schoolAgentEdit/schoolAgentEdit",
+    "pages/region/dormitory/dormitory",
+    "pages/region/containerEdit/containerEdit",
+    "pages/region/dormitoryEdit/dormitoryEdit",
+    "pages/region/schoolEdit/schoolEdit"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#267BD9",
+    "navigationBarTitleText": "吃呗科技",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#f4f4f4"
+  },
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#267BD9",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "iconPath": "image/icon/earth2.png",
+        "selectedIconPath": "image/icon/earth.png",
+        "pagePath": "pages/region/school/school",
+        "text": "学校"
+      },
+      {
+        "iconPath": "image/icon/box3.png",
+        "selectedIconPath": "image/icon/box.png",
+        "pagePath": "pages/box/boxAdmin/boxAdmin",
+        "text": "盒子"
+      },
+      {
+        "iconPath": "image/icon/basket2.png",
+        "selectedIconPath": "image/icon/basket.png",
+        "pagePath": "pages/commodity/home/home",
+        "text": "商品"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
