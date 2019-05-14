@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
+	"libVersion": "2.7.0",
 	"appid": "wx7cbd42a2820d87e5",
-	"projectname": "chibei_agent",
+	"projectname": "chibei-agent",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
